@@ -1,7 +1,7 @@
-#N canvas 0 23 1416 784 12;
-#N canvas 5 28 843 729 sequencer 0;
+#N canvas 20 50 852 635 12;
+#N canvas 20 50 852 583 sequencer 0;
 #X obj 249 124 hradio 15 1 0 16 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 2;
 #X msg 63 77 stop;
 #X obj 63 115 metro;
 #X obj 122 125 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -12,7 +12,7 @@
 -1;
 #X obj 63 189 %;
 #X obj 188 125 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 2 256;
+-262144 -1 -1 4 256;
 #X floatatom 63 222 5 0 0 0 - - -;
 #X obj 132 45 expr 60 / $f1 * 1000;
 #X floatatom 145 123 5 0 0 0 - - -;
@@ -64,21 +64,22 @@
 #X connect 12 15 28 0;
 #X coords 0 -1 1 1 400 50 1 100 100;
 #X restore 333 26 pd sequencer;
-#N canvas 0 23 1416 810 oscilator 1;
-#X obj 100 100 cnv 15 280 400 empty empty empty 20 12 0 14 -228856
+#N canvas 20 50 852 661 oscilator 1;
+#X obj 101 101 cnv 15 280 400 empty empty empty 20 12 0 14 -237178
 -66577 0;
 #X obj 668 602 *~;
-#X obj 221 432 else/out~;
-#X obj 122 174 else/function 235 120 empty empty 0 1 220 220 220 50
-50 50 0 0 0 0 0 100 1 100 0.5 200 0.5 200 0;
+#X obj 221 438 else/out~;
+#X obj 122 180 else/function 235 120 empty empty 0 1 220 220 220 50
+50 50 0 0 0 0 0 117.872 0.316667 184.255 0.475 100.426 0.0166667 197.447
+0;
 #X obj 683 559 else/envgen~ -retrigger 10, f 13;
 #X obj 122 62 else/initmess 0 100 1 100 0.5 200 0.5 200 0;
-#X obj 163 417 knob 40 40 40 1500 0 0 knob knob empty 0 -8 0 8 4.92302e+06
-1 5.46245e+06 0 1;
-#X floatatom 167 465 5 0 0 0 - - -;
+#X obj 163 423 knob 40 40 40 1500 0 0 knob knob empty 0 -8 0 8 2.74442e+06
+1 2.76378e+06 0 1;
+#X floatatom 167 471 5 0 0 0 - - -;
 #X obj -75 677 osc~ 440;
-#X obj 181 319 vradio 15 1 0 3 empty empty empty 0 -8 0 10 -262130
--1 -1 1;
+#X obj 181 325 vradio 15 1 0 3 empty empty empty 0 -8 0 10 -262130
+-1 -1 0;
 #X obj -22 283 sel 0 1 2;
 #X obj 7 665 *~;
 #X obj -171 635 receive square_receive;
@@ -98,22 +99,22 @@
 #X obj -7 812 *~;
 #X obj 33 796 receive lop_receive;
 #X obj 81 835 lop~;
-#X obj 277 331 mknob 32 100 40 1500 0 0 empty empty Cutoff -2 -6 0
+#X obj 295 331 mknob 32 100 40 1500 0 0 empty empty Cutoff -2 -6 0
 8 -262130 -1 -1 0 1;
-#X obj 234 334 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -262130
--1 -1 2;
+#X obj 248 341 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -262130
+-1 -1 1;
 #X obj -118 92 sel 0 1;
 #X msg -108 137 1 \; lop_receive 1 \; hip_receive 0 \;;
 #X msg -1 152 1 \; lop_receive 0 \; hip_receive 1 \;;
 #X obj 684 112 receive step_1;
-#X obj 116 131 tgl 13 0 empty empty empty 17 7 0 10 -262130 -1 -1 0
+#X obj 116 131 tgl 13 0 empty empty empty 17 7 0 10 -262130 -1 -1 1
 1;
 #X obj 684 134 spigot;
 #X obj 131 131 tgl 13 0 empty empty empty 17 7 0 10 -262130 -1 -1 0
 1;
 #X obj 146 131 tgl 13 0 empty empty empty 17 7 0 10 -262130 -1 -1 0
 1;
-#X obj 161 131 tgl 13 0 empty empty empty 17 7 0 10 -262130 -1 -1 0
+#X obj 161 131 tgl 13 0 empty empty empty 17 7 0 10 -262130 -1 -1 1
 1;
 #X obj 179 131 tgl 13 0 empty empty empty 17 7 0 10 -262130 -1 -1 0
 1;
@@ -215,7 +216,7 @@
 #X connect 8 0 0 0;
 #X connect 9 0 7 0;
 #X restore -321 741 pd fm_saw;
-#N canvas 0 23 1416 810 fm_square 1;
+#N canvas 0 23 1416 810 fm_square 0;
 #X obj 349 302 *~;
 #X obj 213 310 +~;
 #X obj 277 232 *~;
@@ -242,12 +243,21 @@
 #X connect 10 0 9 0;
 #X connect 11 0 0 0;
 #X restore 44 549 pd fm_square;
-#X floatatom 235 389 5 0 0 0 - - -;
 #X msg -5 54 width 235;
 #X msg 49 23 height 120;
-#X obj 160 391 nbx 3 17 -1e+37 1e+37 0 0 empty empty Harmonicity 0
--8 0 10 -262130 -1 -1 0 256;
-#X msg -112 19 fgcolor <20 \, 20 \, 20>;
+#X obj 160 397 nbx 3 17 -1e+37 1e+37 0 0 empty empty Harmonicity 0
+-8 0 10 -262130 -1 -1 -0.01 256;
+#X obj 235 397 nbx 3 17 -1e+37 1e+37 0 0 empty empty Mod_Index 0 -8
+0 10 -262130 -1 -1 0.08 256;
+#X msg -112 19 -fgcolor 255 \, 255 \, 255;
+#X text 134 324 Sine ~;
+#X text 141 339 Saw ^;
+#X text 141 354 Sqr┌┐;
+#X text 223 340 lpf;
+#X text 223 355 hpf;
+#X floatatom 343 373 5 0 0 0 - - -;
+#X text 113 110 Step Selection --------------------;
+#X text 113 156 Envelope --------------------------;
 #X connect 1 0 2 1;
 #X connect 1 0 2 0;
 #X connect 3 0 4 1;
@@ -278,6 +288,7 @@
 #X connect 25 0 1 0;
 #X connect 26 0 20 1;
 #X connect 26 0 25 1;
+#X connect 26 0 92 0;
 #X connect 27 0 28 0;
 #X connect 28 0 29 0;
 #X connect 28 1 30 0;
@@ -331,21 +342,21 @@
 #X connect 79 0 13 1;
 #X connect 80 0 15 0;
 #X connect 81 0 11 1;
-#X connect 82 0 81 2;
-#X connect 82 0 79 2;
-#X connect 82 0 80 2;
+#X connect 82 0 3 0;
 #X connect 83 0 3 0;
-#X connect 84 0 3 0;
-#X connect 85 0 81 1;
-#X connect 85 0 79 1;
-#X connect 85 0 80 1;
+#X connect 84 0 81 1;
+#X connect 84 0 79 1;
+#X connect 84 0 80 1;
+#X connect 85 0 81 2;
+#X connect 85 0 79 2;
+#X connect 85 0 80 2;
 #X connect 86 0 3 0;
 #X coords 0 -1 1 1 280 400 2 100 100;
 #X restore 46 232 pd oscilator;
 #X obj 1027 430 *~;
 #X obj 964 557 else/out~;
-#X obj 931 213 else/function 150 100 empty empty 0 1 220 220 220 50
-50 50 0 0 0 0 0 0 0.95 248 0.25 112 0 304 0 536 0;
+#X obj 937 214 else/function 150 100 empty empty 0 1 220 220 220 50
+50 50 0 0 0 0 0 100 1 100 0.5 200 0.5 200 0;
 #X obj 1042 387 else/envgen~ -retrigger 10, f 13;
 #X obj 1130 190 else/initmess 0 100 1 100 0.5 200 0.5 200 0;
 #X msg 1068 170 width 150;
@@ -360,6 +371,7 @@
 #X floatatom 1140 462 5 0 0 0 - - -;
 #X obj 955 407 lop~ 30;
 #X obj 841 372 phasor~ 50;
+#X msg 822 187 fgcolor <255 \, 255 \, 255>;
 #X connect 2 0 12 0;
 #X connect 2 0 13 0;
 #X connect 4 0 5 1;
@@ -375,3 +387,4 @@
 #X connect 15 0 13 1;
 #X connect 16 0 2 0;
 #X connect 17 0 2 0;
+#X connect 18 0 4 0;
